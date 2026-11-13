@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "status": "editorial_draft",
+  "content_revision": "0.1.0",
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Copyright (c) 2026 ttttsdaf and contributors",
+  "notice": "本文件为项目新编写的场景行动卡；不是所链接方法的翻译或操作手册。外部链接保留研究来源，链接目标不由本项目重新授权。",
+  "methods": [
+    {
+      "id": "M01",
+      "title": "澄清问题",
+      "summary": "为当前演示建立一张处境便条，指出最先需要回答的一个问题。",
+      "when_to_use": [
+        "描述中同时出现了想做的事、工具困难和结果疑问",
+        "换了路线，却说不出选择改变的原因"
+      ],
+      "not_for": [
+        "已有明确操作问题时，不必额外填写整张便条",
+        "便条不能替代事实调查或专业判断"
+      ],
+      "requires": [
+        "当前场景和你愿意记录的上下文"
+      ],
+      "steps": [
+        "从示例里选出当前最接近的一项：讲解是否易懂、表格结果怎样核对，或资料能否重新找到。也可以写自己的问题。",
+        "在描述框写下已经有的材料，以及目前真正缺少的信息。例如：已有一段录屏，但还不知道别人在哪一步听不懂。",
+        "在路线旁记一句选择理由。保存这份描述；条件发生变化时修改这句话，不需要维护一套完整计划。"
+      ],
+      "output": "一份保存了当前卡点与路线选择理由的个人便条。",
+      "review_prompt": "回来时能否看出上次为什么从这里开始？",
+      "switch_when": [
+        "只差软件操作时，转 M02 查对应步骤",
+        "需要别人提供信息时，转 M03",
+        "想亲自检查一个疑问时，转 M04"
+      ],
+      "related_method_ids": [
+        "M02",
+        "M03",
+        "M04"
+      ],
+      "source_refs": [
+        {
+          "title": "IDEO.org — Frame Your Design Challenge",
+          "url": "https://www.designkit.org/methods/frame-your-design-challenge.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    },
+    {
+      "id": "M02",
+      "title": "相近案例与现成路线",
+      "summary": "把一份实际能用的参考，与自己的场景条件对照后再尝试。",
+      "when_to_use": [
+        "演示里的动作仍太笼统，需要具体操作或作品参照",
+        "准备采用一个工具，却还没有检验它是否满足当前需要"
+      ],
+      "not_for": [
+        "搜集链接本身不是本次结果",
+        "没有看过操作过程时，不把介绍文字当成已经试用"
+      ],
+      "requires": [
+        "一个可指出的缺口，例如录制声音、核对一列数据或找回一条资料"
+      ],
+      "steps": [
+        "在记录里写出这次准备查清的具体问题，例如“这个版本在哪里设置录音输入”。",
+        "找到一份能回答它的原始资料：对应版本的说明、过程可见的作品或你能实际打开的示例。记下入口。",
+        "对照自己的条件试一次。记录哪个步骤能直接用、哪里不同；仍有阻碍时，把阻碍带回反馈区，而不是继续累积链接。"
+      ],
+      "output": "一个可回到的参考入口，以及一次与自己条件的对照记录。",
+      "review_prompt": "这份参考让你多做成了哪一步？",
+      "switch_when": [
+        "资料没有回答关键问题时，转 M03",
+        "已经可以开始试做时，转 M04",
+        "发现查错问题时，回 M01"
+      ],
+      "related_method_ids": [
+        "M01",
+        "M03",
+        "M04"
+      ],
+      "source_refs": [
+        {
+          "title": "IDEO.org — Secondary Research",
+          "url": "https://www.designkit.org/methods/secondary-research.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    },
+    {
+      "id": "M03",
+      "title": "准备求助",
+      "summary": "给愿意帮忙的人一个容易理解、能够回应的小请求。",
+      "when_to_use": [
+        "需要了解别人是否听懂、业务结果是否正确，或具体操作哪里出错",
+        "已经有人愿意看，但还没有准备好展示材料"
+      ],
+      "not_for": [
+        "不代替对方答应参与",
+        "反馈者的意见不自动代表所有使用者"
+      ],
+      "requires": [
+        "可分享的一小段材料，或一段不含私人信息的情况说明"
+      ],
+      "steps": [
+        "写清你希望对方做的事：复述一段讲解、核对几行合成数据，或尝试找回一份示例资料。按需要选择能提供该信息的人。",
+        "准备请求：“我在尝试……，这里有……。你方便帮我看……吗？不方便也没关系。”附上必要材料，说明预计需要的时间。",
+        "把对方实际回应和你的理解分开保存。未收到回应时记录为“还没有这项信息”，再决定换人、缩小请求或先做别的检查。"
+      ],
+      "output": "一份可自行发送的求助草稿，以及收到回应后的记录位置。",
+      "review_prompt": "请求中有没有一个对方能够直接回应的动作？",
+      "switch_when": [
+        "没有可看的材料时，接 M04",
+        "收到信息后，接 M06",
+        "发现请求没有对准问题时，回 M01"
+      ],
+      "related_method_ids": [
+        "M01",
+        "M04",
+        "M06"
+      ],
+      "source_refs": [
+        {
+          "title": "IDEO.org — Expert Interview",
+          "url": "https://www.designkit.org/methods/expert-interview.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    },
+    {
+      "id": "M04",
+      "title": "最小样品",
+      "summary": "制作一份可检查的场景样本，留下第一次结果作为后续对照。",
+      "when_to_use": [
+        "希望知道一个具体做法在当前场景会发生什么",
+        "已有工具或材料，可以完成一次有限尝试"
+      ],
+      "not_for": [
+        "样本表现不能直接代表长期效果",
+        "需要专业资质或有高风险后果的活动不由本示例指导"
+      ],
+      "requires": [
+        "用于演示或已获使用许可的材料"
+      ],
+      "steps": [
+        "选定本次样本：一段讲解、几行合成表格，或一小组资料条目。先写下怎样观察结果，例如哪一步听不懂、哪一格算错、哪条资料找不到。",
+        "完成并保留这一份样本。在记录中写明实际用了什么，以及没有完成的部分；不要用假设结果填补空白。",
+        "检查观察结果，选择反馈按钮并补一句发生的事。下一次改动后仍保留原样本，方便回看差异。"
+      ],
+      "output": "一份具体样本及其第一次观察记录。",
+      "review_prompt": "留下的是可查看的结果，还是还没有实施的打算？",
+      "switch_when": [
+        "需要他人检查时，接 M03",
+        "有观察记录后，接 M06",
+        "无法开始时，用 M01 写清所缺条件"
+      ],
+      "related_method_ids": [
+        "M01",
+        "M03",
+        "M06"
+      ],
+      "source_refs": [
+        {
+          "title": "IDEO.org — Rapid Prototyping",
+          "url": "https://www.designkit.org/methods/rapid-prototyping.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    },
+    {
+      "id": "M05",
+      "title": "不同视角",
+      "summary": "用几个具体问题检查同一份样本，并标明哪些回答来自真实的人。",
+      "when_to_use": [
+        "同一份结果看起来没问题，却还缺少某个角度的信息",
+        "不同人的反馈不一致，需要先看清他们各自在判断什么"
+      ],
+      "not_for": [
+        "AI 角色模拟不能替代真实参与者的反馈",
+        "不同视角不等于投票决定事实"
+      ],
+      "requires": [
+        "同一份可查看的样本或记录"
+      ],
+      "steps": [
+        "在样本旁列出还想了解的问题。讲解可以问“哪一句开始听不懂”；表格可以问“哪条业务规则没有说明”；资料索引可以问“换一个搜索词还找得到吗”。",
+        "把每个问题交给适合回应的人，或先自行检查能直接观察的部分。逐项标记“本人观察”“他人反馈”或“尚无答案”。",
+        "遇到不一致时，记录各自的条件和所指位置。挑一个仍缺的信息作为下一次请求，不把尚未回答的问题写成共识。"
+      ],
+      "output": "一份按问题与信息来源分开的观察清单。",
+      "review_prompt": "哪些判断有实际观察，哪些仍是猜测？",
+      "switch_when": [
+        "需要补人的信息时，接 M03",
+        "需要补事实材料时，接 M02",
+        "出现可尝试的具体改动时，接 M04"
+      ],
+      "related_method_ids": [
+        "M02",
+        "M03",
+        "M04"
+      ],
+      "source_refs": [
+        {
+          "title": "Henri Lipmanowicz、Keith McCandless — Troika Consulting",
+          "url": "https://www.liberatingstructures.com/troika-consulting",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        },
+        {
+          "title": "IDEO.org — Analogous Inspiration",
+          "url": "https://www.designkit.org/methods/analogous-inspiration.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    },
+    {
+      "id": "M06",
+      "title": "反馈迭代",
+      "summary": "利用本应用的五类反馈，记录本次状态并确定下一次检查什么。",
+      "when_to_use": [
+        "尝试过一个动作，或发现根本没有开始的条件",
+        "准备回看路线、保存记录或整理分享草稿"
+      ],
+      "not_for": [
+        "按钮只选择预设分支，不会分析自由输入",
+        "个人记录和演示分支都不是有效性认证"
+      ],
+      "requires": [
+        "如实描述这一次发生的情况"
+      ],
+      "steps": [
+        "选择与事实接近的状态：有帮助、试了没解决、缺少条件、还没做，或目标变了。准备做的事仍记录为准备，不写成完成。",
+        "补充一个具体观察。查看预设的调整建议，再写下你实际准备尝试什么；建议不适用时可以换路线。",
+        "保存记录。若导出分享草稿，先删除不想公开的信息，保留场景、观察条件和未解决部分；下载文件不会自动发布。"
+      ],
+      "output": "一份可恢复的过程记录，以及下一次准备检查的事情。",
+      "review_prompt": "记录是否区分了已经发生的事、预设建议和自己的下一步打算？",
+      "switch_when": [
+        "目标发生变化时，回 M01",
+        "下一步需要资料或他人信息时，接 M02/M03",
+        "已有具体可检查动作时，接 M04"
+      ],
+      "related_method_ids": [
+        "M01",
+        "M02",
+        "M03",
+        "M04"
+      ],
+      "source_refs": [
+        {
+          "title": "IDEO.org — Integrate Feedback and Iterate",
+          "url": "https://www.designkit.org/methods/integrate-feedback-and-iterate.html",
+          "relation": "background_reading",
+          "checked_on": "2026-11-13",
+          "scope_note": "前期研究入口；当前行动卡的操作文字为项目场景说明。外部材料保留原权利。"
+        }
+      ],
+      "origin": "project_authored_demo_exercise",
+      "content_license": "CC-BY-SA-4.0",
+      "editorial_status": "draft",
+      "evidence_status": "not_user_tested"
+    }
+  ],
+  "routes": [
+    {
+      "id": "ROUTE01",
+      "title": "把一次演示尝试记录下来",
+      "method_ids": [
+        "M01",
+        "M02",
+        "M04",
+        "M03",
+        "M06"
+      ],
+      "hand_offs": [
+        {
+          "from_method_id": "M01",
+          "to_method_id": "M02",
+          "carry_forward": "携带处境便条中尚未回答的具体问题。"
+        },
+        {
+          "from_method_id": "M02",
+          "to_method_id": "M04",
+          "carry_forward": "携带能够实际打开的参考与一次尝试范围。"
+        },
+        {
+          "from_method_id": "M04",
+          "to_method_id": "M03",
+          "carry_forward": "携带样本和希望对方回应的一个问题。"
+        },
+        {
+          "from_method_id": "M03",
+          "to_method_id": "M06",
+          "carry_forward": "携带对方实际说过什么、哪些问题尚无回答。"
+        }
+      ],
+      "conditions": [
+        "有明确操作步骤时可从 M02 开始；不用完成全部卡片。",
+        "不需要他人判断的检查可以直接记录，不能把它写成用户反馈。"
+      ],
+      "alternative": [
+        "缺少必要材料时先记下缺口并换路线。",
+        "收到互相不同的意见时，用 M05 区分问题与信息来源。",
+        "目标改变时修改 M01 的处境便条，再选择当前路线。"
+      ],
+      "content_license": "CC-BY-SA-4.0"
+    }
+  ]
+}

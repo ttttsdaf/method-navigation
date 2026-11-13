@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "EXAMPLE-001",
+  "record_kind": "synthetic_design_example",
+  "execution_status": "not_performed",
+  "notice": "本文件是虚构的设计示例。人物、行动和反馈均用于演示信息结构，不是真实用户实践或有效性证据。",
+  "method_ids": [
+    "M04",
+    "M03",
+    "M06"
+  ],
+  "private_draft": {
+    "title": "用短讲解草稿发现理解卡点（示意）",
+    "context": "希望先试做一条数学讲解，已有录屏工具，一个人制作，尚未确定讲解难度是否合适。",
+    "initial_choice": "先做一个知识点的短草稿，找接近目标观众的人反馈。",
+    "action": "做了一分钟示意草稿，请虚构的反馈者小林看完后复述理解内容，并指出首次听不懂的位置。",
+    "feedback": "假设反馈：第二步推理跨度过大，对方不能说明中间为什么成立。",
+    "revision": "假设调整：增加一个中间例子，重做同一段，再检查理解，而非先更换剪辑工具。",
+    "personal_note": "示意私人笔记：担心讲得太简单，原先刻意省去了中间步骤。",
+    "limitations": [
+      "整段为合成示意，尚未发生。",
+      "即使未来获得一位反馈者的意见，也不能代表全部目标观众。"
+    ],
+    "visibility": "private_draft"
+  },
+  "share_preview": {
+    "title": "从观众的具体卡点调整讲解（示意）",
+    "context": "第一次试做数学讲解；有录屏条件，暂无观众反馈。",
+    "method_ids": [
+      "M04",
+      "M03",
+      "M06"
+    ],
+    "steps": [
+      "只讲一个知识点，做一段短草稿。",
+      "请一位接近目标观众的反馈者复述理解，并指出首次听不懂的位置。",
+      "依据具体卡点修改同一段，再检查变化。"
+    ],
+    "observation": "示意反馈指出某处推理跨度过大；示意调整是在该处补一个中间例子。",
+    "takeaway": "可探索的经验：当疑问是内容是否易懂时，让反馈指向具体位置，可能比先增加制作工具更有助于决定下一步。",
+    "limitations": [
+      "这是设计示例，未执行。",
+      "该推断需要真实使用反馈，不能宣称效果已验证。"
+    ],
+    "source_note": "方法原始来源与改写说明沿 method_ids 查 content/methods.json；本示意故事由项目编写。",
+    "publication_status": "preview_only",
+    "credit": "项目合成示例，无真实实践贡献者"
+  },
+  "preview_changes": [
+    "移除虚构反馈者的姓名，保留对判断有用的角色。",
+    "移除与复用无关的私人情绪笔记。",
+    "保留合成示意标记、适用处境和未验证限制。"
+  ],
+  "content_license": "CC-BY-SA-4.0",
+  "copyright": "Copyright (c) 2026 ttttsdaf and contributors",
+  "content_revision": "0.1.0"
+}

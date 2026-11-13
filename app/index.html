@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-only; Copyright (C) 2026 ttttsdaf and contributors. See LICENSE and NOTICE.md. -->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#174f4b">
+    <meta name="description" content="下一步：选择合适的方法，试着行动，再把经验留下来。当前为未接入 AI 的预设场景演示。">
+    <title>下一步 · 方法导航</title>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand" aria-label="下一步，方法导航">
+          <span class="brand-mark" aria-hidden="true">↗</span>
+          <div><span class="brand-name">下一步</span><span class="brand-caption">方法导航 · 经验同行</span></div>
+        </div>
+        <nav class="primary-nav" aria-label="主要页面">
+          <button type="button" class="nav-button active" data-view="workspace">找下一步</button>
+          <button type="button" class="nav-button" data-view="library">方法库</button>
+          <button type="button" class="nav-button" data-view="records">我的记录</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-shell">
+      <div class="notice demo-notice">
+        <span class="notice-dot" aria-hidden="true"></span>
+        <div><strong>场景演示 · 预设内容，未接入 AI</strong><span>这里的建议来自预设场景；填写自己的描述只会保存上下文，不会自动分析或生成新建议。</span></div>
+      </div>
+
+      <section id="view-workspace" class="app-view" aria-labelledby="workspace-heading">
+        <div class="page-heading workspace-heading">
+          <div><p class="eyebrow">从一个小小的行动开始</p><h1 id="workspace-heading">眼前的卡点，<br class="mobile-break">下一步怎么走？</h1><p class="lead">选一个例子，试着换路线、带回反馈，把值得留下的经验记下来。</p></div>
+          <span class="heading-symbol" aria-hidden="true">↗</span>
+        </div>
+
+        <section class="panel context-panel" aria-labelledby="context-heading">
+          <div class="section-heading"><div><span class="step-number">01</span><h2 id="context-heading">先看一个具体处境</h2></div><button type="button" id="clear-draft" class="button text-button">重置当前示例</button></div>
+          <div id="scenario-tabs" class="scenario-tabs" aria-label="选择演示场景"></div>
+          <label class="field-label" for="problem-input">我现在想推进的事</label>
+          <textarea id="problem-input" rows="3" placeholder="描述你想做的事、已经试过什么，以及现在卡在哪里。" aria-describedby="context-note"></textarea>
+          <div class="context-footer"><p id="context-note" class="muted">描述在当前页面中保留。想留到下次，请在下面保存为记录。</p><button type="button" id="save-context" class="button secondary">更新我的描述</button></div>
+        </section>
+
+        <div class="workspace-grid">
+          <div class="main-flow">
+            <section class="action-section" aria-labelledby="action-heading">
+              <div class="section-heading"><div><span class="step-number">02</span><h2 id="action-heading">挑一个现在能做的行动</h2></div><span class="badge">预设建议</span></div>
+              <div id="understanding" class="understanding muted"></div>
+              <div id="current-action" class="action-card"></div>
+            </section>
+
+            <section class="panel feedback-panel" aria-labelledby="feedback-heading">
+              <div class="section-heading"><div><span class="step-number">03</span><h2 id="feedback-heading">做过之后，发生了什么？</h2></div></div>
+              <p class="section-description">没有开始、缺少条件、做了没解决，都可以成为调整下一步的线索。</p>
+              <div id="feedback-buttons" class="feedback-buttons" aria-label="选择反馈情况"></div>
+              <label class="field-label" for="feedback-note">补充发生的事 <span class="optional">可选</span></label>
+              <textarea id="feedback-note" rows="3" placeholder="例如：找到了一个人看草稿，但对方从第二步就没跟上。"></textarea>
+              <div class="feedback-submit"><p class="muted">文字会进入记录；下面的调整仍是对应情况的预设示例。</p><button type="button" id="apply-feedback" class="button">看看下一步怎么调 <span aria-hidden="true">→</span></button></div>
+              <div id="feedback-result" class="feedback-result" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <aside class="side-flow" aria-label="其他路线与本次记录">
+            <section class="panel routes-panel" aria-labelledby="routes-heading">
+              <div class="section-heading"><div><span class="small-symbol" aria-hidden="true">⇄</span><h2 id="routes-heading">也可以换条路</h2></div></div>
+              <p class="section-description">条件不同，适合先做的事也可能不同。</p>
+              <div id="route-options" class="route-options"></div>
+            </section>
+            <section class="panel history-panel" aria-labelledby="history-heading">
+              <div class="section-heading"><div><span class="small-symbol" aria-hidden="true">↳</span><h2 id="history-heading">这次怎么走过来的</h2></div></div>
+              <div id="history-list" class="history-list"></div>
+              <div class="save-block"><button type="button" id="save-record" class="button full-width">保存为我的记录</button><p class="muted">保存在当前浏览器。保存后可到“我的记录”里导出、预览分享或删除。</p></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-library" class="app-view" aria-labelledby="library-heading" hidden>
+        <div class="page-heading"><div><p class="eyebrow">不必先知道方法的名字</p><h1 id="library-heading">先看看，有哪些路可走</h1><p class="lead">从适用条件和一个具体动作开始。原始来源与方法的限制也一起留下。</p></div><span class="heading-symbol compact" aria-hidden="true">⌘</span></div>
+        <div class="library-toolbar"><label class="field-label" for="method-search">查找方法</label><input type="search" id="method-search" placeholder="试试“求助”“样品”“反馈”……" autocomplete="off"></div>
+        <div class="notice subtle-notice">这些是本项目的场景行动卡初稿，尚无真实用户效果验证；延伸阅读中的原方法不由本项目重新授权。</div>
+        <div id="method-list" class="method-list"></div>
+      </section>
+
+      <section id="view-records" class="app-view" aria-labelledby="records-heading" hidden>
+        <div class="page-heading"><div><p class="eyebrow">留下过程，也留下条件</p><h1 id="records-heading">每一次尝试，都有可带走的东西</h1><p class="lead">回看自己的选择与反馈，整理成下一次能用上的经验。</p></div></div>
+        <div class="records-toolbar"><div class="notice subtle-notice">记录保存在当前浏览器；建议导出留存。导出和分享预览都不会自动公开。</div><div class="button-group"><button type="button" id="export-json" class="button secondary">导出完整记录 · JSON</button><button type="button" id="export-markdown" class="button secondary">导出阅读版 · Markdown</button></div></div>
+        <div id="records-list" class="records-list"></div>
+      </section>
+
+      <footer class="page-footer"><span>下一步 · 方法导航与开放经验社区<br>© 2026 ttttsdaf 与贡献者 · 软件按许可无担保提供</span><nav class="license-links" aria-label="许可与源码"><a href="/NOTICE.md" target="_blank" rel="noopener">许可与署名</a><a href="/LICENSE" target="_blank" rel="noopener">AGPL-3.0-only</a><a href="/source.zip" download="method-navigation-source.zip">当前版本源码</a></nav></footer>
+    </main>
+
+    <div id="status" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog id="share-dialog" aria-labelledby="share-heading" aria-describedby="share-description">
+      <div class="dialog-header"><div><p class="eyebrow">公开之前，先由你检查</p><h2 id="share-heading">分享草稿预览</h2></div><button type="button" id="close-share" class="button secondary">关闭</button></div>
+      <p id="share-description" class="muted">可以改写或删去不想分享的信息。下载只会生成文件，不会发送给别人或发布到社区。</p>
+      <label class="field-label" for="share-text">将被带走的内容</label>
+      <textarea id="share-text" rows="16" spellcheck="false"></textarea>
+      <div class="dialog-footer"><span class="muted">请保留示例标记、适用条件和来源。</span><button type="button" id="download-share" class="button">下载这份分享草稿</button></div>
+    </dialog>
+    <noscript><div class="noscript-notice">这个交互演示需要开启 JavaScript。方法正文仍可从项目的 content 目录查看。</div></noscript>
+  </body>
+</html>
