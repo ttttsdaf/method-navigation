@@ -10,6 +10,8 @@
 
 [项目想法](VISION.md) · [后续路线与开放问题](ROADMAP.md) · [方法来源](docs/SOURCES.md) · [参与方式](CONTRIBUTING.md)
 
+首次公开：[项目介绍：为什么想做这件事](https://github.com/ttttsdaf/method-navigation/discussions/1) · [来聊聊你怎样找到“下一步”](https://github.com/ttttsdaf/method-navigation/discussions/2)。欢迎不同背景的读者参与，简短的具体经历或不同意见也有帮助。
+
 第一次公开希望同时展示作品和分享思想，也听取不同背景的人的意见。想先理解构想，可以看截图和 [VISION](VISION.md)；想试一试，可以按下面的步骤运行；有亲身经验或不同意见，可以从 [参与方式](CONTRIBUTING.md) 选择一件小事，不需要先会编程。
 
 ## 先体验一条路线

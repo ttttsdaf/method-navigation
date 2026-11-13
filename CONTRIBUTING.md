@@ -2,6 +2,8 @@
 
 当前最需要的是可理解、可核对的反馈。0.1.0 是早期场景演示，欢迎先围绕具体问题讨论。
 
+可以直接在[首篇讨论帖](https://github.com/ttttsdaf/method-navigation/discussions/2)回应；先了解构想请看[项目介绍](https://github.com/ttttsdaf/method-navigation/discussions/1)。具体功能错误可以提到 [Issues](https://github.com/ttttsdaf/method-navigation/issues)。
+
 ## 不写代码，也可以参与
 
 你可以只选一件：讲一次不知道该怎么往下走的经历；看一个场景并指出第一处不理解；推荐一份亲自用过的原始资料；说明某条建议为什么不符合自己的条件。简短的具体反馈就有帮助，不必先整理成标准方法卡。
