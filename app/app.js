@@ -309,7 +309,7 @@ function exportRecords(format) {
   const draft = snapshot();
   const rows = app.current.dirty || !app.records.length || app.records.some(r => r.id === draft.id)
     ? app.records.filter(r => r.id !== draft.id).concat(draft) : [...app.records];
-  if (format === 'json') download(JSON.stringify({ schema_version: 1, mode: 'demo', preset_content_credit: CONTENT_CREDIT, records: rows }, null, 2), '下一步-我的记录.json', 'application/json;charset=utf-8');
+  if (format === 'json') download(JSON.stringify({ schema_version: 1, mode: 'demo', preset_content_credit: CONTENT_CREDIT, records: rows.map(row => ({ ...row, feedback_history: [] })) }, null, 2), '下一步-我的记录.json', 'application/json;charset=utf-8');
   else download(rows.map(row => asMarkdown(row)).join('\n\n---\n\n'), '下一步-我的记录.md', 'text/markdown;charset=utf-8');
   status('已发起下载，包含已保存记录及当前草稿。导出没有上传或公开任何内容。');
 }
