@@ -1,0 +1,29 @@
+{
+  "name": "method-navigation",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "format:check": "prettier --check package.json \"*.mjs\" \"tests/**/*.mjs\"",
+    "lint": "eslint app tests \"*.mjs\" --max-warnings=0",
+    "test:unit": "node --test \"tests/**/*.test.mjs\"",
+    "test:browser": "playwright test",
+    "test:python": "python -m py_compile serve.py verify_baseline.py && python -B -m unittest discover -s tests -q",
+    "check": "npm run format:check && npm run lint && npm run test:python && npm run test:unit && npm run test:browser"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "endOfLine": "auto",
+    "printWidth": 100
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
+    "eslint": "10.15.0",
+    "globals": "17.14.0",
+    "prettier": "3.10.1"
+  }
+}

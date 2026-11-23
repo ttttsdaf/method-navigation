@@ -10,3 +10,6 @@ venv/
 Thumbs.db
 downloads/
 personal-records/
+node_modules/
+test-results/
+playwright-report/

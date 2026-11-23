@@ -37,3 +37,15 @@
 代码采用 AGPL-3.0-only，列明的项目原创内容采用 CC BY-SA 4.0，范围见 [NOTICE](NOTICE.md)。提交合入代码或内容时，请明确你有权提供材料，并同意按对应文件的许可贡献；无需转让版权。普通讨论评论不视为已同意案例收录或再授权。第三方材料保留原作者条款。
 
 对官方项目的改动，可以说明它帮助谁、解决什么卡点，以及是否影响用户自主性、隐私、导出或推荐利益关系。产品与维护原则见 [VISION](VISION.md)；它们指导官方项目的选择，不额外限制开源许可证已经授予的权利。
+
+## 开发与验收
+
+在源码目录使用 Node.js 24 和 Python 3.14。先运行 `npm ci --ignore-scripts`。Windows 浏览器测试使用已安装的 Edge，Linux 用 `npx --no-install playwright install --with-deps chromium` 准备浏览器。
+
+- `node quality-diff.mjs <可信基线> HEAD` 根据两个提交列出风险、推荐检查与人工复核事项。加 `--run` 执行选出的现有检查。
+- `npm run check` 执行完整 Quality 检查。Prettier 覆盖开发配置和 JavaScript 测试，ESLint 覆盖应用和测试代码。Python 用例启动本地预览服务复验 HTTP 契约，Playwright 在桌面和窄屏操作真实演示并核对导出。失败时在 `test-results/` 找截图和 trace，复跑前复制需要留存的证据。
+- 由审查者确认基线提交，从可信检出运行 `python "<可信检出>/verify_baseline.py" --base <基线提交> --head HEAD --mode changed`。工作目录应为候选 Git 仓库。该命令在验收文件变化时把候选业务与基线的测试和配置装入临时目录，并运行原有检查。用 `--mode observe` 只查看标准改动与指纹，用 `--mode all` 显式执行完整旧标准。对合法增加或更新的测试，仍以候选套件验证新约定，记录原约定及维护者批准的行为变化。
+
+审查针对实际提交。尚在编辑的文件可先跑对应单项测试，固定验收前记录候选提交和所用的基线版本。
+
+Quality 把候选检查与冻结复验放在两个独立任务。临时目录用于隔离验收文件，运行来源不可信的业务代码时应使用无凭据的隔离运行环境。

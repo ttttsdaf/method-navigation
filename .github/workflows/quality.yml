@@ -1,0 +1,93 @@
+name: Quality
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: method-navigation-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Record the tested Git object
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          actual="$(git rev-parse HEAD)"
+          test "$actual" = "$GITHUB_SHA"
+          printf 'tested=%s\npr_head=%s\npr_base=%s\n' "$actual" "$PR_HEAD" "$PR_BASE"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.14'
+      - run: npm ci --ignore-scripts
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Check the proposed version
+        run: npm run check
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: failure()
+        with:
+          name: playwright-failure
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  acceptance:
+    name: method-navigation-acceptance
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.14'
+      - name: Observe affected checks using the base version
+        continue-on-error: true
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git cat-file -e "$PR_BASE:quality-diff.mjs" 2>/dev/null; then
+            observer="$(mktemp "${RUNNER_TEMP}/quality-diff.XXXXXX.mjs")"
+            git show "$PR_BASE:quality-diff.mjs" > "$observer"
+            node "$observer" "$PR_BASE" "$GITHUB_SHA"
+          else
+            echo "This base predates the Diff observer."
+          fi
+      - name: Replay the base contract when acceptance files change
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          if git cat-file -e "$PR_BASE:verify_baseline.py" 2>/dev/null; then
+            base_runner="$(mktemp "${RUNNER_TEMP}/verify-baseline.XXXXXX.py")"
+            git show "$PR_BASE:verify_baseline.py" > "$base_runner"
+            python -B "$base_runner" --base "$PR_BASE" --head "$GITHUB_SHA" \
+              --mode changed --install-chromium --artifacts "${RUNNER_TEMP}/baseline-artifacts"
+          else
+            echo "::warning::Bootstrap only. This base predates the frozen acceptance runner."
+          fi
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: failure()
+        with:
+          name: frozen-acceptance-failure
+          path: ${{ runner.temp }}/baseline-artifacts/
+          if-no-files-found: ignore
+          retention-days: 7
