@@ -34,8 +34,9 @@ class PreviewTests(unittest.TestCase):
     def test_preview_resources_are_readable(self):
         for path in ("/", "/app.js", "/style.css", "/data/methods.json", "/data/scenarios.json"):
             with self.subTest(path=path):
-                status, _, body = self.request("GET", path)
+                status, headers, body = self.request("GET", path)
                 self.assertEqual(status, 200)
+                self.assertEqual(headers["Cache-Control"], "no-store")
                 self.assertTrue(body)
 
     def test_head_has_no_body_and_writes_are_rejected(self):
