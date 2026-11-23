@@ -62,6 +62,10 @@ test('示例选择路线与反馈后，可恢复记录并导出完整内容', as
     scenario_id: 'S03',
     selected_route_id: 'S03-R2',
     current_action: { title: outcome },
+    feedback_history: [
+      { kind: 'route', title: routeTitle },
+      { kind: 'feedback', type: 'blocked', note },
+    ],
   });
   const markdown = await downloadText(page, '导出阅读版 · Markdown', /\.md$/);
   expect(markdown).toContain(outcome);
